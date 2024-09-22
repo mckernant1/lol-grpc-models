@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package com.mckernant1.lol.tournament;
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+service TournamentService {
+    rpc GetTournament (GetTournamentRequest) returns (GetTournamentResponse);
+    rpc GetTournamentsForLeague (GetTournamentsForLeagueRequest) returns (GetTournamentsForLeagueResponse);
+    rpc GetOngoingTournaments (GetOngoingTournamentsRequest) returns (GetOngoingTournamentsResponse);
+    rpc GetMostRecentTournament (GetMostRecentTournamentRequest) returns (GetMostRecentTournamentResponse);
+}
+
+message Tournament {
+    string league_id = 1;
+    string tournament_id = 2;
+    optional google.protobuf.Timestamp start_time = 3;
+    optional google.protobuf.Timestamp end_time = 4;
+    optional bool is_official = 5;
+    optional bool is_playoffs = 6;
+    optional bool is_qualifier = 7;
+}
+
+message GetTournamentRequest {
+    string tournament_id = 1;
+}
+
+message GetTournamentResponse {
+    optional Tournament tournament = 1;
+}
+
+message GetTournamentsForLeagueRequest {
+    string league_id = 1;
+}
+
+message GetTournamentsForLeagueResponse {
+    repeated Tournament tournaments = 1;
+}
+
+message GetOngoingTournamentsRequest {
+
+}
+
+message GetOngoingTournamentsResponse {
+    repeated Tournament tournaments = 1;
+}
+
+message GetMostRecentTournamentRequest {
+    string league_id = 1;
+}
+
+message GetMostRecentTournamentResponse {
+    Tournament tournament = 1;
+}

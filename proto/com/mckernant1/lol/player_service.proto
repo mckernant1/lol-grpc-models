@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.mckernant1.lol.players;
+
+option java_multiple_files = true;
+
+service PlayerService {
+    rpc GetPlayersOnTeam (GetPlayersOnTeamRequest) returns (GetPlayersOnTeamResponse);
+}
+
+message GetPlayersOnTeamRequest {
+
+}
+
+message GetPlayersOnTeamResponse {
+
+}

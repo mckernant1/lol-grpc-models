@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package com.mckernant1.lol.leagues;
+
+option java_multiple_files = true;
+
+service LeagueService {
+    rpc ListLeagues(ListLeaguesRequest) returns (ListLeaguesResponse);
+    rpc GetLeague(GetLeagueRequest) returns (GetLeagueResponse);
+}
+
+message League {
+    string league_id = 1;
+    bool is_official = 2;
+    string league_name = 3;
+    optional string level = 4;
+    optional string region = 5;
+}
+
+message ListLeaguesRequest {
+
+}
+
+message ListLeaguesResponse {
+    repeated League leagues = 1;
+}
+
+message GetLeagueRequest {
+    string league_id = 1;
+}
+
+message GetLeagueResponse {
+    optional League league = 1;
+}

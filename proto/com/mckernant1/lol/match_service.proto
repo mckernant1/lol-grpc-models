@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.mckernant1.lol.match;
+
+option java_multiple_files = true;
+
+
+service MatchService {
+    rpc GetMatchesForTournament(GetMatchesForTournamentRequest) returns (GetMatchesForTournamentResponse);
+}
+
+message Match {
+    string tournament_id = 1;
+    string match_id =2;
+    optional string best_of = 3;
+    string blue_team_id = 4;
+    string red_team_id = 5;
+    optional string patch = 6;
+    string start_time = 7;
+    optional string winner = 8;
+}
+
+message GetMatchesForTournamentRequest {
+    string tournament_id = 1;
+}
+
+message GetMatchesForTournamentResponse {
+    repeated Match matches = 1;
+}

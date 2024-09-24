@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.mckernant1.lol.match;
+package com.mckernant1.lol.matches;
 
 option java_multiple_files = true;
 

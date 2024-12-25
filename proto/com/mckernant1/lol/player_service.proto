@@ -8,10 +8,21 @@ service PlayerService {
     rpc GetPlayersOnTeam (GetPlayersOnTeamRequest) returns (GetPlayersOnTeamResponse);
 }
 
-message GetPlayersOnTeamRequest {
+message Player {
+    string id = 1;             // Required: Unique player identifier
+    optional double age = 2;   // Optional: Player's age
+    optional string country = 3; // Optional: Player's country
+    optional bool is_substitute = 4; // Optional: Whether the player is a substitute
+    optional string residency = 5;  // Optional: Player's residency
+    optional string role = 6;       // Optional: Player's role in the team
+    optional string team_id = 7;     // Optional: Identifier of the player's team
+}
 
+
+message GetPlayersOnTeamRequest {
+    string id = 1;
 }
 
 message GetPlayersOnTeamResponse {
-
+    repeated Player players = 1;
 }

@@ -20,7 +20,7 @@ message Player {
 
 
 message GetPlayersOnTeamRequest {
-    string id = 1;
+    string team_id = 1;
 }
 
 message GetPlayersOnTeamResponse {

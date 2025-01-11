@@ -4,6 +4,8 @@ package com.mckernant1.lol.matches;
 
 option java_multiple_files = true;
 
+import "google/protobuf/timestamp.proto";
+
 
 service MatchService {
     rpc GetMatchesForTournament(GetMatchesForTournamentRequest) returns (GetMatchesForTournamentResponse);
@@ -16,7 +18,7 @@ message Match {
     string blue_team_id = 4;
     string red_team_id = 5;
     optional string patch = 6;
-    string start_time = 7;
+    google.protobuf.Timestamp start_time = 7;
     optional string winner = 8;
 }
 

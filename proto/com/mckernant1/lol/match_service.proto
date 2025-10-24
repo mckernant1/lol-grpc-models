@@ -9,6 +9,8 @@ import "google/protobuf/timestamp.proto";
 
 service MatchService {
     rpc GetMatchesForTournament(GetMatchesForTournamentRequest) returns (GetMatchesForTournamentResponse);
+
+    rpc GetMatchesForLeague(GetMatchesForLeagueRequest) returns (GetMatchesForLeagueResponse);
 }
 
 message Match {
@@ -27,5 +29,13 @@ message GetMatchesForTournamentRequest {
 }
 
 message GetMatchesForTournamentResponse {
+    repeated Match matches = 1;
+}
+
+message GetMatchesForLeagueRequest {
+    string league_id = 1;
+}
+
+message GetMatchesForLeagueResponse {
     repeated Match matches = 1;
 }

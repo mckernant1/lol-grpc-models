@@ -34,6 +34,7 @@ message GetMatchesForTournamentResponse {
 
 message GetMatchesForLeagueRequest {
     string league_id = 1;
+    optional int32 limit = 2;
 }
 
 message GetMatchesForLeagueResponse {
